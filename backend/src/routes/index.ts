@@ -27,6 +27,7 @@ router.get('/health', (_req: Request, res: Response) => {
 // ==========================================
 router.post('/auth/register', validate(registerSchema), AuthController.register);
 router.post('/auth/login', validate(loginSchema), AuthController.login);
+router.post('/auth/demo', AuthController.demo);
 router.get('/auth/me', authMiddleware, AuthController.me);
 router.put('/auth/budget', authMiddleware, validate(budgetSchema), AuthController.updateBudget);
 

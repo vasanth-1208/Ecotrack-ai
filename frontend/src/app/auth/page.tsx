@@ -36,6 +36,21 @@ export default function AuthPage() {
     }
   };
 
+  const handleDemoLogin = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const res = await api.auth.demo();
+      setAuthToken(res.token);
+      router.push('/dashboard');
+    } catch (err: any) {
+      console.error(err);
+      setError(err.message || 'Demo profile generation failed. Check backend connection.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex-1 bg-gradient-to-br from-emerald-950 via-slate-900 to-emerald-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-slate-900/60 backdrop-blur-md border border-emerald-900/30 rounded-2xl shadow-2xl p-8 text-white relative overflow-hidden">
@@ -137,6 +152,20 @@ export default function AuthPage() {
             )}
           </button>
         </form>
+
+        <div className="relative flex py-4 items-center">
+          <div className="flex-grow border-t border-slate-700/50"></div>
+          <span className="flex-shrink mx-4 text-[10px] text-slate-400 uppercase font-bold tracking-widest">Or Hackathon View</span>
+          <div className="flex-grow border-t border-slate-700/50"></div>
+        </div>
+
+        <button
+          onClick={handleDemoLogin}
+          disabled={loading}
+          className="w-full py-2.5 bg-slate-800 hover:bg-slate-750 text-emerald-400 border border-slate-700 font-bold rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 flex justify-center items-center gap-2"
+        >
+          🚀 Skip Login / Quick Demo Mode
+        </button>
 
         <p className="text-center text-xs text-slate-400 mt-6 leading-relaxed">
           EcoTrack AI supports Sustainable Development Goals 7, 11, 12, and 13.
