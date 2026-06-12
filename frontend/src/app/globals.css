@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Accessibility Font Adjustments */
+.dyslexia-font {
+  font-family: "Comic Neue", "Comic Sans MS", "Chalkboard SE", sans-serif !important;
+  letter-spacing: 0.08em !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.6 !important;
+}
+
+/* Accessibility Reduced Motion Rule */
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-delay: -1ms !important;
+  animation-duration: 1ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+
+/* Accessibility Font Scaling Rules */
+.text-scale-sm {
+  font-size: 0.875rem !important; /* 14px */
+}
+.text-scale-md {
+  font-size: 1rem !important; /* 16px */
+}
+.text-scale-lg {
+  font-size: 1.125rem !important; /* 18px */
+}
+.text-scale-xl {
+  font-size: 1.25rem !important; /* 20px */
+}
+
+/* Focus indicator optimizations for WCAG keyboard navigation */
+*:focus-visible {
+  outline: 3px solid #047857; /* Emerald-700 */
+  outline-offset: 2px;
+}
+
+/* Custom transitions */
+.transition-motion {
+  transition: all 0.2s ease-in-out;
+}
+.reduced-motion .transition-motion {
+  transition: none !important;
+}

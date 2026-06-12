@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+/frontend/node_modules
+/backend/node_modules
+
+# Build files
+dist/
+build/
+.next/
+out/
+dist-test/
+
+# Local database fallback logs and data
+backend/data/*.json
+!backend/data/.gitkeep
+*.log
+.system_generated/
+
+# Secret/Environment files
+.env
+.env*.local
+
+# IDEs & System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
